@@ -30,7 +30,7 @@ require_once 'app/config/Database.php';
         <a href="/Books-MVC/usuario/logout">Cerrar sesión</a>
         <h2>Accesos Rápidos</h2>
         <div class="access__items">
-            <div class="access" onclick="window.location='nuevoLibro.html'">
+        <div class="access" onclick="window.location='/Books-MVC/libro/nuevo'">
                 <div class="access__info">
                     <h3>Agregar Libro</h3>
                     <p>Agrega tus libros favoritos para tenerlos siempre a mano.</p>
@@ -39,16 +39,16 @@ require_once 'app/config/Database.php';
                     <i class="fa-solid fa-circle-plus"></i>
                 </div>
             </div>
-            <div class="access" onclick="window.location='libros.php'">
+            <div class="access" onclick="window.location='/Books-MVC/libro/index'">
                 <div class="access__info">
                     <h3>Mis Libros</h3>
-                    <p>Busca los libros por Autor o por Título.</p>
+                    <p>Mira el listado de tus libros agregados.</p>
                 </div>
                 <div class="access__icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
-            <div class="access" onclick="window.location='categorias.php'">
+            <div class="access" onclick="window.location='/Books-MVC/libro/categorias'">
                 <div class="access__info">
                     <h3>Categorías</h3>
                     <p>Accede a los libros clasificados por categorías.</p>

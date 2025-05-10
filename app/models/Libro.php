@@ -1,4 +1,5 @@
 <?php
+require_once 'app/config/Database.php';
 class Libro {
     private $db;
 
@@ -11,8 +12,13 @@ class Libro {
         return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getCategorias() {
+        $sql = "SELECT titulo, autor, categoria, fecha_compra, imagen FROM libros ORDER BY categoria, titulo";;
+        return $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function guardar($datos) {
-        $stmt = $this->db->prepare("INSERT INTO libros (titulo, autor, anio_publicacion, categoria) VALUES (?, ?, ?, ?)");
-        return $stmt->execute([$datos['titulo'], $datos['autor'], $datos['anio'], $datos['categoria']]);
+        $stmt = $this->db->prepare("INSERT INTO libros (titulo, autor, categoria, fecha_compra, imagen) VALUES (?, ?, ?, ?, ?)");
+        return $stmt->execute([$datos['titulo'], $datos['autor'], $datos['categoria'], $datos['fechaCompra'], $datos['imagen']]);
     }
 }
