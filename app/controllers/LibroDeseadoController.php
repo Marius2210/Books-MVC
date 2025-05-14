@@ -1,31 +1,18 @@
 <?php
-require_once 'app/models/Libro.php';
+require_once 'app/models/LibroDeseado.php';
 
-class LibroController
+class LibroDeseadoController
 {
     public function index()
     {
-        $libro = new Libro();
-        $libros = $libro->getTodos();
-        require_once 'app/views/libro/libros.php';
-    }
-
-    public function categorias()
-    {
-        $libro = new Libro();
-        $libros = $libro->getCategorias();
-
-        // Agrupar por categoría
-        $categorias = [];
-        foreach ($libros as $libro) {
-            $categorias[$libro['categoria']][] = $libro;
-        }
-        require_once 'app/views/libro/categorias.php';
+        $librodeseado= new LibroDeseado();
+        $librosdeseados = $librodeseado->getTodos();
+        require_once 'app/views/libro/librosDeseados.php';
     }
 
     public function nuevo()
     {
-        require_once 'app/views/libro/nuevoLibro.html';
+        require_once 'app/views/libro/nuevoLibroDeseado.html';
     }
 
     public function guardar()
@@ -48,15 +35,15 @@ class LibroController
             echo "Error al subir la imagen.";
             return;
         }
-        $libro = new Libro();
-        $libro->guardar([
+        $librodeseadodeseado = new LibroDeseado();
+        $librodeseadodeseado->guardar([
             'titulo' => $_POST['titulo'],
             'autor' => $_POST['autor'],
             'categoria' => $_POST['categoria'],
             'fechaCompra' => $_POST['fechaCompra'],
             'imagen' => $archivoRuta
         ]);
-        header("Location: /Books-MVC/libro/index");
+        header("Location: /Books-MVC/librodeseado/index");
     }
 
     public function editar()
@@ -67,15 +54,15 @@ class LibroController
         }
 
         $id = $_GET['id'];
-        $libro = new Libro();
-        $libroActual = $libro->getPorId($id);
+        $librodeseado = new LibroDeseado();
+        $librodeseadoActual = $librodeseado->getPorId($id);
 
-        if (!$libroActual) {
+        if (!$librodeseadoActual) {
             echo "Libro no encontrado.";
             return;
         }
 
-        require_once 'app/views/libro/editarLibro.php';
+        require_once 'app/views/libro/editarLibroDeseado.php';
     }
 
     public function actualizar()
@@ -88,7 +75,7 @@ class LibroController
         $id = $_POST['id'];
 
         // Reutilizamos lógica de validación de imagen
-        $archivoRuta = $_POST['imagenActual'];
+        $archivoRuta = $_POST['imagenActual']; // valor por defecto (en caso no se actualice la imagen)
         if (!empty($_FILES['portada']['name'])) {
             $directorio = 'public/imagenesLibros/';
             $archivoNombre = basename($_FILES['portada']['name']);
@@ -107,8 +94,8 @@ class LibroController
             }
         }
 
-        $libro = new Libro();
-        $libro->editar($id, [
+        $librodeseado = new LibroDeseado();
+        $librodeseado->editar($id, [
             'titulo' => $_POST['titulo'],
             'autor' => $_POST['autor'],
             'categoria' => $_POST['categoria'],
@@ -116,7 +103,7 @@ class LibroController
             'imagen' => $archivoRuta
         ]);
 
-        header("Location: /Books-MVC/libro/index");
+        header("Location: /Books-MVC/librodeseado/index");
     }
 
     public function eliminar()
@@ -127,20 +114,20 @@ class LibroController
         }
 
         $id = $_GET['id'];
-        $libro = new Libro();
-        $libroActual = $libro->getPorId($id);
+        $librodeseado = new LibroDeseado();
+        $librodeseadoActual = $librodeseado->getPorId($id);
 
-        if (!$libroActual) {
+        if (!$librodeseadoActual) {
             echo "Libro no encontrado.";
             return;
         }
 
-        if (!empty($libroActual['imagen']) && file_exists($libroActual['imagen'])) {
-            unlink($libroActual['imagen']);
+        if (!empty($librodeseadoActual['imagen']) && file_exists($librodeseadoActual['imagen'])) {
+            unlink($librodeseadoActual['imagen']);
         }
 
-        $libro->eliminar($id);
+        $librodeseado->eliminar($id);
 
-        header("Location: /Books-MVC/libro/index");
+        header("Location: /Books-MVC/librodeseado/index");
     }
 }

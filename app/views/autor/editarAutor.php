@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/61fb4717c0.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="/Books-MVC/public/img/book.png">
-    <title>Luz de Letras | Nuevo Libro</title>
+    <title>Luz de Letras | Editar Libro</title>
 </head>
 <body>
     <header>
@@ -20,42 +20,32 @@
         </div>
     </header>
     <div class="newBook__container">
-        <h2>Nuevo Libro</h2>
+        <h2>Editar Autor</h2>
         <a href="/Books-MVC/home/index">Volver a inicio</a>
-        <form action="/Books-MVC/libro/guardar" method="POST" enctype="multipart/form-data">
+        <form action="/Books-MVC/autor/actualizar" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?= $autorActual['id'] ?>">
+            <input type="hidden" name="imagenActual" value="<?= $autorActual['imagen'] ?>">
+
             <div class="form__option__container">
                 <div class="form__option">
-                    <label for="titulo">Título</label>
-                    <input type="text" name="titulo" id="titulo" required>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" value="<?= htmlspecialchars($autorActual['nombre']) ?>" required>
                 </div>
                 <div class="form__option">
-                    <label for="titulo">Autor</label>
-                    <input type="text" name="autor" id="autor" required>
+                    <label for="nacionalidad">Autor</label>
+                    <input type="text" name="nacionalidad" id="nacionalidad" value="<?= htmlspecialchars($autorActual['nacionalidad']) ?>" required>
                 </div>
             </div>
             <div class="form__option__container">
-                <div class="form__option form__option__category">
-                    <label for="titulo">Categoría</label>
-                    <select name="categoria" id="categoria" required>
-                        <option value="Terror">Terror</option>
-                        <option value="Ciencia Ficción">Ciencia Ficción</option>
-                        <option value="Romance">Romance</option>
-                        <option value="Poesía">Poesía</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form__option__container">
-                <div class="form__option">
-                    <label for="fechaCompra">Fecha de Compra</label>
-                    <input type="date" name="fechaCompra" id="fechaCompra" max="<?= date('Y-m-d'); ?>" required>
-                </div>
                 <div class="form__option">
                     <label for="portada">Imagen de Portada</label>
-                    <input type="file" name="portada" id="portada" required>
+                    <input type="file" name="portada" id="portada">
+                    <p style="font-size: 0.9em; color: #666;">Deja este campo vacío si no deseas cambiar la imagen.</p>
                 </div>
             </div>
+
             <div class="form__button">
-                <input type="submit" value="GUARDAR">
+                <input type="submit" value="ACTUALIZAR">
             </div>
         </form>
     </div>

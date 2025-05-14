@@ -63,6 +63,7 @@ header img{
     height: 350px;
     width: 225px;
     cursor: pointer;
+    margin:20px;
 }
 
 .book img{

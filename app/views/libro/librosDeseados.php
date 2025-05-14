@@ -21,19 +21,19 @@
     </header>
 
     <div class="books__container">
-        <h2>Mis Libros</h2>
+        <h2>Mis Libros Deseados</h2>
         <a href="/Books-MVC/home/index">Volver a inicio</a>
         <div class="books">
-            <?php foreach ($libros as $libro): ?>
+            <?php foreach ($librosdeseados as $librodeseado): ?>
             <div class="book">
-                <img src="/Books-MVC/<?= htmlspecialchars($libro["imagen"]) ?>" alt="Portada del libro">
+                <img src="/Books-MVC/<?= htmlspecialchars($librodeseado["imagen"]) ?>" alt="Portada del libro">
                 <div class="book__info">
-                    <h3><?= htmlspecialchars($libro["titulo"]) ?></h3>
-                    <p><?= htmlspecialchars($libro["autor"]) ?></p>
-                    <p><?= htmlspecialchars($libro["categoria"]) ?></p>
-                    <p><?= htmlspecialchars($libro["fecha_compra"]) ?></p>
-                    <a href="/Books-MVC/libro/editar?id=<?= $libro['id'] ?>">Editar libro</a>
-                    <a href="/Books-MVC/libro/eliminar?id=<?= $libro['id'] ?>" onclick="return confirm('¿Estás seguro que deseas eliminar este libro?');">Eliminar libro</a>
+                    <h3><?= htmlspecialchars($librodeseado["titulo"]) ?></h3>
+                    <p><?= htmlspecialchars($librodeseado["autor"]) ?></p>
+                    <p><?= htmlspecialchars($librodeseado["categoria"]) ?></p>
+                    <p><?= htmlspecialchars($librodeseado["fecha_compra"]) ?></p>
+                    <a href="/Books-MVC/librodeseado/editar?id=<?= $librodeseado['id'] ?>">Editar libro</a>
+                    <a href="/Books-MVC/librodeseado/eliminar?id=<?= $librodeseado['id'] ?>" onclick="return confirm('¿Estás seguro que deseas eliminar este libro?');">Eliminar libro</a>
                 </div>
             </div>
             <?php endforeach; ?>

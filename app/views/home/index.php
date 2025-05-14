@@ -57,7 +57,7 @@ require_once 'app/config/Database.php';
                     <i class="fa-solid fa-layer-group"></i>
                 </div>
             </div>
-            <div class="access" onclick="window.location='listaDeseos.html'">
+            <div class="access" onclick="window.location='/Books-MVC/librodeseado/nuevo'">
                 <div class="access__info">
                     <h3>lista de Deseos</h3>
                     <p>Guarda los libros que deseas leer en el futuro.</p>
@@ -66,7 +66,7 @@ require_once 'app/config/Database.php';
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
                 </div>
             </div>
-            <div class="access" onclick="window.location='nuevoAutor.html'">
+            <div class="access" onclick="window.location='/Books-MVC/autor/nuevo'">
                 <div class="access__info">
                     <h3>Gestionar Autores</h3>
                     <p>Añade la información de tus autores favoritos.</p>

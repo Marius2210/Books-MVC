@@ -20,9 +20,10 @@
         </div>
     </header>
     <div class="newBook__container">
-        <h2>Nuevo Libro</h2>
+        <h2>Nuevo Libro Deseado</h2>
         <a href="/Books-MVC/home/index">Volver a inicio</a>
-        <form action="/Books-MVC/libro/guardar" method="POST" enctype="multipart/form-data">
+        <a href="/Books-MVC/librodeseado/index">Ver lista de libros deseados</a>
+        <form action="/Books-MVC/librodeseado/guardar" method="POST" enctype="multipart/form-data">
             <div class="form__option__container">
                 <div class="form__option">
                     <label for="titulo">Título</label>
@@ -46,8 +47,8 @@
             </div>
             <div class="form__option__container">
                 <div class="form__option">
-                    <label for="fechaCompra">Fecha de Compra</label>
-                    <input type="date" name="fechaCompra" id="fechaCompra" max="<?= date('Y-m-d'); ?>" required>
+                    <label for="fechaCompra">Fecha de Compra Futura</label>
+                    <input type="date" name="fechaCompra" id="fechaCompra" min="<?= date('Y-m-d'); ?>" required>
                 </div>
                 <div class="form__option">
                     <label for="portada">Imagen de Portada</label>
