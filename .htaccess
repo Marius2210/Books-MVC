@@ -1,6 +1,6 @@
 RewriteEngine On
 
-# Asegúrate de que el archivo y el directorio realmente no existan
+# Bloque para evitar interferencia con archivos y carpetas reales
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
