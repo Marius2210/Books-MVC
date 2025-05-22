@@ -15,7 +15,7 @@
 <body>
     <header>
     <img src="/Books-MVC/public/img/book.png" alt="Libro">
-        <div class="header__title">
+        <div class="header__title" onclick="window.location='/Books-MVC/home/index'">
             <h1>Luz De Letras</h1>
             <p>Organiza, descubre y disfruta</p>
         </div>

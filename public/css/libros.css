@@ -31,28 +31,13 @@ header img{
 .header__title{
     display: flex;
     flex-direction: column;
+    cursor: default;
 }
 
-.books__container{
-    color: #452727;
+.books__header{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 80vh;
-    justify-content: start;
-    align-items: start;
-    padding: 30px 500px 30px 30px;
-    gap: 20px;
-}
-
-.books{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .searchBook{

@@ -14,15 +14,16 @@
 <body>
     <header>
         <img src="/Books-MVC/public/img/book.png" alt="Libro">
-        <div class="header__title">
+        <div class="header__title" onclick="window.location='/Books-MVC/home/index'">
             <h1>Luz De Letras</h1>
             <p>Organiza, descubre y disfruta</p>
         </div>
     </header>
-
     <div class="books__container">
-        <h2>Mis Libros</h2>
-        <a href="/Books-MVC/home/index">Volver a inicio</a>
+        <div class="books__header">
+            <h2>Mis Libros</h2>
+            <a href="/Books-MVC/home/index">Volver a inicio</a>
+        </div>
         <div class="books">
             <?php foreach ($libros as $libro): ?>
             <div class="book">
